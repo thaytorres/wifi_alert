@@ -1,1 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Wifi-Grátis</title>
+</head>
+<body>
+    <!--Aqui é aprimeira tela1-->
+    <section id="tela1" class="ativa">
+        <h1> WIFI_LIVRE</h1>
+        <p id="status">CLique aqui para conectar</p>
+        
+        <div class="barra">
+            <div id="barra"></div>
+        </div>
+        <button onclick="iniciarConexao()">Conectar</button>
+    </section>
 
+    <!--Tela2 agora-->
+    <section id="tela2">
+        <h1 id="alerta"></h1>
+    </section>
+
+    <!--Ultima tela-->
+    <section id="tela3">
+        <h2>🔓 O que pode acontecer?</h2>
+        <ul>
+            <li><strong>Interceptação de dados bancários:</strong> Ao acessar aplicativos ou sites bancários em redes abertas, suas informações podem ser interceptadas por terceiros.</li>
+            <li><strong>Ataques “Man-in-the-Middle”:</strong> Nesse tipo de ataque, o criminoso se posiciona entre você e a internet, interceptando e podendo alterar as informações.</li>
+
+        </ul>
+
+        <h2>🔐 Como se proteger?</h2>
+        <ul>
+            <li><strong>Evite Wi-fi público:</strong>E Redes públicas geralmente não possuem proteção adequada, o que facilita a ação de criminosos. s</li>
+            <li><strong>Use VPN:</strong> Uma VPN (Rede Privada Virtual) criptografa sua conexão, tornando muito mais difícil que terceiros interceptem seus dados. </li> 
+            <li><strong>Desative conexão automática:</strong> Muitos dispositivos se conectam automaticamente a redes abertas já utilizadas anteriormente.</li> 
+        </ul>
+
+        <p class="aviso">
+            Este é um projeto educativo! Nenhum dado foi coletado!!
+        </p>
+    </section>
+
+    <!--Parte do JS! primeiramente começar com a função principal-->
+    
+    <script>
+        function iniciarConexao() {
+            let progresso = 0;
+
+            //pegar elementos do html! Vou acessar eles usando get.
+
+            let barra = document.getElementById("barra");
+            let status = document.getElementById("status");
+            // o 'getElementById' é tipo busque o elemento por id... 
+
+            // Criar um 'loop'
+
+            let intervalo = setInterval(function(){
+                progresso += 10;
+
+                //quero que atualize a barra de carregamento.
+                barra.style.width = progresso + "%";
+
+                // quero tambem que o texto mude coonforme avança
+                if (progresso == 30) status.innerText = "Autenticando....";
+                if (progresso == 60) status.innerText = "Obtendo dados....";
+                if (progresso == 90) status.innerText = "Conectando....";
+
+                //Quando chegara 100 o loop vai parar.
+
+                if(progresso >= 100){
+                    clearInterval(intervalo);
+                    mostraAlerta();
+                }
+            },400);
+        }
+
+        //Agora usar função de trocar telas
+
+        function trocarTela(id){
+            document.querySelectorAll("section").forEach(sec => {
+                sec.classList.remove("ativa");
+            });
+
+            document.getElementById(id).classList.add("ativa");
+        }
+
+        //Função alerta
+
+        function mostraAlerta(){
+            trocarTela("tela2");
+
+            let texto = " ACESSO INTERCEPTADO...\nSe isso fosse real, seus dados já estariam sendo roubados.";
+            let i = 0;
+
+            const elemento = document.getElementById("alerta");
+            elemento.innerHTML = "";
+
+            const efeito = setInterval(() => {
+            elemento.innerHTML += texto.charAt(i);
+            i++;
+
+            if (i >= texto.length) {
+                clearInterval(efeito);
+
+                setTimeout(() => {
+                    trocarTela("tela3");
+                }, 2000);
+            }
+        },40);
+    }
+    </script>
+
+    
+    
+</body>
+</html>
