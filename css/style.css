@@ -16,7 +16,7 @@ body{
 section{
     display: none;
     width: 90%;
-    max-width: 420px;
+    max-width: 415px;
     padding: 30px;
     border-radius: 20px;
     background: rgba(20, 0, 40, 0.6);
@@ -89,8 +89,8 @@ li{
 }
 
 .aviso{
-    margin-top: 20px;
-    font-size:13px;
+    margin-top: 15px;
+    font-size:10px;
     color: #aaa;
 }
 
