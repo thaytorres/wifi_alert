@@ -26,6 +26,7 @@
     <!--Ultima tela-->
     <section id="tela3">
         <h2>🔓 O que pode acontecer?</h2>
+        <p class="aviso"><strong>Embora pareçam práticas e gratuitas, redes Wi-Fi públicas podem apresentar riscos à segurança dos usuários. Todavia que, quando não há proteção adequada, terceiros podem tentar acessar suas informações transmitidas pela rede. Entre os principais perigos estão:</strong></p>
         <ul>
             <li><strong>Interceptação de dados bancários:</strong> Ao acessar aplicativos ou sites bancários em redes abertas, suas informações podem ser interceptadas por terceiros.</li>
             <li><strong>Ataques “Man-in-the-Middle”:</strong> Nesse tipo de ataque, o criminoso se posiciona entre você e a internet, interceptando e podendo alterar as informações.</li>
@@ -34,13 +35,13 @@
 
         <h2>🔐 Como se proteger?</h2>
         <ul>
-            <li><strong>Evite Wi-fi público:</strong> Redes públicas geralmente não possuem proteção adequada, o que facilita a ação de criminosos. </li>
+            <li><strong>Evite Wi-fi público:</strong> Redes públicas geralmente não possuem proteção adequada, o que facilita a ação de criminosos.</li>
             <li><strong>Use VPN:</strong> Uma VPN (Rede Privada Virtual) criptografa sua conexão, tornando muito mais difícil que terceiros interceptem seus dados. </li> 
             <li><strong>Desative conexão automática:</strong> Muitos dispositivos se conectam automaticamente a redes abertas já utilizadas anteriormente.</li> 
         </ul>
 
         <p class="aviso">
-            Este é um projeto educativo! Nenhum dado foi coletado!!
+            <strong>Este é um projeto educativo! Nenhum dado foi coletado é apenas uma simulação do que poderia ocorrer!</strong>
         </p>
     </section>
 
@@ -93,7 +94,7 @@
         function mostraAlerta(){
             trocarTela("tela2");
 
-            let texto = " ACESSO INTERCEPTADO...\nSe isso fosse real, seus dados já estariam sendo roubados.";
+            let texto = " ACESSO INTERCEPTADO...\nSe isso fosse real, seus dados já estariam corrompidos.";
             let i = 0;
 
             const elemento = document.getElementById("alerta");
